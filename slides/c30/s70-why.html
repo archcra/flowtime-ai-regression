@@ -1,0 +1,27 @@
+
+
+<h1> Gradient Descent - Minimizing “Wrongness”-3</a></h1>
+<p>
+机器如何知道好坏？
+
+
+
+“measurement of wrongness”
+
+</p>
+
+<p>
+
+The wrongness measure is known as the cost function (a.k.a., loss function), J of theta.
+The input theta represents all of the coefficients we are using in our predictor.
+So in our case, theta is really the pair θ<sub>0</sub> and θ<sub>1</sub>. J of θ<sub>0</sub> and θ<sub>1</sub>
+gives us a mathematical measurement of how wrong our predictor is when it uses the given values of θ<sub>0</sub> and θ<sub>1</sub>.
+
+</p>
+
+
+$$J(\theta_0,\theta_1) =\frac{1}{2m}\sum_{i=1}^m (h(x_{t,i})-y)^2     $$
+<p>
+  With least squares, the penalty for a bad guess goes up quadratically with the difference between the guess and the correct answer,
+   so it acts as a very “strict” measurement of wrongness. The cost function computes an average penalty over all of the training examples.
+</p>

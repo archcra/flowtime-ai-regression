@@ -1,0 +1,30 @@
+
+
+<h1> <a href="http://58.241.217.181:15111/notebooks/work/github/TensorFlow-Examples/notebooks/2_BasicModels/linear_regression.ipynb">
+  TensorFlow warm up </a> </h1>
+
+<strong> Hello world </strong>
+  <pre class="language-markup"><code class="language-python">
+    import tensorflow as tf
+    hello = tf.constant('Hello, TensorFlow!')
+
+    # Start tf session
+    sess = tf.Session()
+    print(sess.run(hello))
+  </code>
+  </pre>
+</br>
+<strong> 常量运算 </strong>
+<pre class="language-markup"><code class="language-python">
+import tensorflow as tf
+a = tf.constant(2)
+b = tf.constant(3)
+
+# Basic constant operations
+# Launch the default graph.
+with tf.Session() as sess:
+    print ("a: %i" % sess.run(a), "b: %i" % sess.run(b))
+    print ("Addition with constants: %i" % sess.run(a+b))
+    print ("Multiplication with constants: %i" % sess.run(a*b))
+  </code>
+  </pre>
