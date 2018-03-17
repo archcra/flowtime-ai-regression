@@ -1,30 +1,43 @@
 
 
 <h1> <a href="http://58.241.217.181:15111/notebooks/work/github/TensorFlow-Examples/notebooks/2_BasicModels/linear_regression.ipynb">
-  TensorFlow warm up </a> </h1>
+  TensorFlow - Linear Regression </a> </h1>
 
-<strong> Hello world </strong>
   <pre class="language-markup"><code class="language-python">
     import tensorflow as tf
-    hello = tf.constant('Hello, TensorFlow!')
+    import numpy
+    import matplotlib.pyplot as plt
+    rng = numpy.random
 
-    # Start tf session
-    sess = tf.Session()
-    print(sess.run(hello))
+    # Parameters
+    learning_rate = 0.001
+    training_epochs = 1000
+    display_step = 50
+
+    # Training Data
+    train_X = numpy.asarray([-4.0,14.0,30.2, 32.0, 41.0 , 50.0, 68.0, 69.8, 86.0, 98.6, 104.0, 122.0 , 176.0])
+    train_Y = numpy.asarray([-20.0,-10.0, -1.0, 0.0, 5.0,10.0, 20.0, 21.0,30.0, 37.0, 40.0, 50.0, 80.0 ])
+    n_samples = train_X.shape[0]
+
+    # tf Graph Input
+    X = tf.placeholder("float")
+    Y = tf.placeholder("float")
+
+    # Set model weights
+    W = tf.Variable(rng.randn(), name="weight")
+    b = tf.Variable(rng.randn(), name="bias")
+    print ('weight, bias: ', W, b)
+
+    # Construct a linear model
+    pred = tf.add(tf.multiply(X, W), b)
+
+    # Mean squared error
+    cost = tf.reduce_sum(tf.pow(pred-Y, 2))/(2*n_samples)
+    # Gradient descent
+    optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(cost)
+
+
+
   </code>
   </pre>
 </br>
-<strong> 常量运算 </strong>
-<pre class="language-markup"><code class="language-python">
-import tensorflow as tf
-a = tf.constant(2)
-b = tf.constant(3)
-
-# Basic constant operations
-# Launch the default graph.
-with tf.Session() as sess:
-    print ("a: %i" % sess.run(a), "b: %i" % sess.run(b))
-    print ("Addition with constants: %i" % sess.run(a+b))
-    print ("Multiplication with constants: %i" % sess.run(a*b))
-  </code>
-  </pre>

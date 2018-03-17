@@ -1,0 +1,44 @@
+
+
+<h1> <a href="http://58.241.217.181:15111/notebooks/work/github/TensorFlow-Examples/notebooks/2_BasicModels/linear_regression.ipynb">
+  TensorFlow - Linear Regression - 5 </a> </h1>
+
+
+  <div class="row">
+
+  <div class="col-md-6">
+<pre>
+# Construct a linear model
+sess = tf.Session()
+X = 212.0
+W = 0.553837
+b = -17.0971
+pred = tf.add(tf.multiply(X, W), b)
+print ('pred is: ', sess.run(pred))
+
+</pre>
+<p>
+  pred is:  100.316
+
+</p>
+</div>
+<div class="col-md-6">
+
+
+$$ T_{(°C)} = T_{(°F)}× 5/9 - 32 × 5/9  $$
+
+<pre>
+# Construct a linear model
+sess = tf.Session()
+X = 212.0
+W = 5/9.0
+b = -5*32/9.0
+pred = tf.add(tf.multiply(X, W), b)
+print ('pred is: ', sess.run(pred))
+</pre>
+<p>
+  pred is:  100.0
+
+</p>
+</div>
+</div>

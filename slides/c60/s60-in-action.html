@@ -1,30 +1,60 @@
 
 
 <h1> <a href="http://58.241.217.181:15111/notebooks/work/github/TensorFlow-Examples/notebooks/2_BasicModels/linear_regression.ipynb">
-  TensorFlow warm up </a> </h1>
+  TensorFlow - Linear Regression - 2 </a> </h1>
 
-<strong> Hello world </strong>
+  <div class="row">
+    <div class="col-md-8">
+
   <pre class="language-markup"><code class="language-python">
-    import tensorflow as tf
-    hello = tf.constant('Hello, TensorFlow!')
+    # Initialize the variables (i.e. assign their default value)
+    init = tf.global_variables_initializer()
 
-    # Start tf session
-    sess = tf.Session()
-    print(sess.run(hello))
-  </code>
-  </pre>
-</br>
-<strong> 常量运算 </strong>
-<pre class="language-markup"><code class="language-python">
-import tensorflow as tf
-a = tf.constant(2)
-b = tf.constant(3)
+    # Start training
+    with tf.Session() as sess:
+      sess.run(init)
 
-# Basic constant operations
-# Launch the default graph.
-with tf.Session() as sess:
-    print ("a: %i" % sess.run(a), "b: %i" % sess.run(b))
-    print ("Addition with constants: %i" % sess.run(a+b))
-    print ("Multiplication with constants: %i" % sess.run(a*b))
-  </code>
+      # Fit all training data
+      for epoch in range(training_epochs):
+          for (x, y) in zip(train_X, train_Y):
+              sess.run(optimizer, feed_dict={X: x, Y: y})
+
+          #Display logs per epoch step
+          if (epoch+1) % display_step == 0:
+              c = sess.run(cost, feed_dict={X: train_X, Y:train_Y})
+              print ("Epoch:", '%04d' % (epoch+1), "cost=", "{:.9f}".format(c), \
+                  "W=", sess.run(W), "b=", sess.run(b))
+
+      print ("Optimization Finished!")
+      training_cost = sess.run(cost, feed_dict={X: train_X, Y: train_Y})
+      print ("Training cost=", training_cost, "W=", sess.run(W), "b=", sess.run(b), '\n')
+
+      #Graphic display
+      plt.plot(train_X, train_Y, 'ro', label='Original data')
+      plt.plot(train_X, sess.run(W) * train_X + sess.run(b), label='Fitted line')
+      # plt.plot(train_X, 0.5 * train_X - 90, label='Fitted line')
+      plt.legend()
+      plt.show()
+    </code>
+    </pre>
+
+  </div>
+      <div class="col-md-4">
+
+<pre>
+    这句是定义线性模型：
+    # Construct a linear model
+    pred = tf.add(tf.multiply(X, W), b)
+    这个没有任何神秘，就是一个乘法，一个加法。处理的对象都是普通的变量。
+
+
+    要说神秘，那就是这句：
+    # Gradient descent
+    optimizer = tf.train.GradientDescentOptimizer(
+      learning_rate).minimize(cost)
+
+    定义了一个梯度下降
+
   </pre>
+</div>
+</div>

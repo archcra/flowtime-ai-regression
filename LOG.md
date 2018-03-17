@@ -19,6 +19,8 @@ https://www.rapidtables.com/convert/temperature/celsius-to-fahrenheit.html
 
 参考：
 https://www.metric-conversions.org/temperature/celsius-to-fahrenheit.htm
+https://www.rapidtables.com/convert/temperature/fahrenheit-to-celsius.html
+
 
 
 使用tensor flow做in action
