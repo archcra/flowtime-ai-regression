@@ -27,7 +27,8 @@ var slidePages = [
     "slides/c30/s80-why.html",
     "slides/c30/s90-why.html",
     "slides/c30/sa0-why.html",
-    "slides/c30/sb0-why.html"
+    "slides/c30/sb0-why.html",
+    "slides/c30/sc0-why.html"
   ],
   ["slides/c40/s10-prelude.html",
     "slides/c40/s20-prelude.html",

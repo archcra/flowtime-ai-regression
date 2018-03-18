@@ -163,3 +163,12 @@ http://58.241.217.181:15111/notebooks/work/github/TensorFlow-Examples/notebooks/
 
 
 ```
+
+->
+
+Reducing Loss: An Iterative Approach
+
+
+https://developers.google.com/machine-learning/crash-course/reducing-loss/an-iterative-approach
+
+https://www.howcast.com/videos/258352-how-to-play-hot-and-cold/
