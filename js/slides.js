@@ -57,7 +57,8 @@ var slidePages = [
     "slides/c80/s30-question.html",
     "slides/c80/s40-question.html",
     "slides/c80/s50-question.html",
-    "slides/c80/s60-question.html"
+    "slides/c80/s60-question.html",
+      "slides/c80/s70-question.html"
   ],
   ["slides/c90/s10-references.html"],
   ["slides/ca0/s10-bye.html"]
